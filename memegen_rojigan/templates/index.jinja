@@ -17,14 +17,13 @@
 <body>
   <div class="container">
     <h1>Rojigan's Memes</h1>
-    <p>
-      Add uwu links to your browser by following these
-      <a href="https://github.com/simonfong6/uwu-links">instructions</a>.
-    </p>
-    <p>
-      See the nitty gritty source code on
-      <a href="https://github.com/simonfong6/uwu-links">github</a>.
-    </p>
+    <ul class="list-group">
+      {% for image in images %}
+        <li class="list-group-item">
+        <img src={{ image }} class="img-fluid" alt="Responsive image"/>
+        </li>
+      {% endfor %}
+    </ul>
   </div>
 
 </body>

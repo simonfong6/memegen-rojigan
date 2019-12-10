@@ -20,7 +20,13 @@ links = None
 
 @app.route('/')
 def index():
-    return render_template('index.jinja')
+    images_dir = 'static/images/'
+    images_names = [
+        '77412709_538950413617199_6818013205168652288_n.jpg',
+        '79015809_1261120694078187_8577508787756204032_n.jpg']
+    image_paths = [images_dir + images_name for images_name in images_names]
+    print(image_paths)
+    return render_template('index.jinja', images=image_paths)
 
 
 def main(args):
