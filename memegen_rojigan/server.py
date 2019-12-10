@@ -3,6 +3,7 @@
 Server code for memegen rojigan.
 """
 import logging
+import os
 
 from flask import Flask
 from flask import request
@@ -17,15 +18,17 @@ app = Flask(__name__)
 
 links = None
 
+def get_image_paths(directory_path='static/images/'):
+    image_names = os.listdir(directory_path)
+    image_paths = [directory_path + images_name for images_name in image_names]
+    return image_paths
+
 
 @app.route('/')
 def index():
-    images_dir = 'static/images/'
-    images_names = [
-        '77412709_538950413617199_6818013205168652288_n.jpg',
-        '79015809_1261120694078187_8577508787756204032_n.jpg']
-    image_paths = [images_dir + images_name for images_name in images_names]
-    print(image_paths)
+
+    image_paths = get_image_paths()
+
     return render_template('index.jinja', images=image_paths)
 
 
