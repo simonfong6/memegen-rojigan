@@ -1,0 +1,12 @@
+server {
+    listen 80;
+    listen [::]:80;
+
+    server_name memegen.rojigan.com *.rojigan.com rojigan.com;
+
+    location / {
+        proxy_pass http://127.0.0.1:8383;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+    }
+}
